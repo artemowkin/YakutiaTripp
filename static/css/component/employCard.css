@@ -1,0 +1,38 @@
+.employCard {
+    width: 100%;
+    max-width: 300px;
+}
+
+.employCard:hover .shadowContent {
+    opacity: 1;
+}
+
+.employCard__img {
+    position: relative;
+
+    padding-top: 100%;
+}
+
+.employCard__img > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+
+    object-fit: cover;
+    transition: all .2s ease;
+}
+
+.employCard__desc {
+    text-align: center;
+    margin-top: 15px;
+    
+    font-size: 1.5rem;
+    letter-spacing: .1rem;
+    color: black;
+    text-transform: capitalize;
+}

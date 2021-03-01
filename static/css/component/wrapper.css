@@ -1,0 +1,19 @@
+.wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.flexSpace {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (max-width: 880px) {
+    .flexSpace {
+        justify-content: center;
+        flex-direction: column;
+    }
+}

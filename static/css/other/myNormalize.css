@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+ 
+html {
+    font-family: "Lato", sans-serif;
+}
+
+select:required:invalid {
+    color: gray;
+  }
+
+option[value=""][disabled] {
+    display: none;
+}
+
+option {
+    color: black;
+}
+
+input:not(:placeholder-shown):invalid {
+    background: rgba(255, 0, 0, 0.400);
+    border-color: red;
+    box-shadow: none;
+}
+
+a {
+    text-align: center;
+}

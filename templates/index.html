@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="../assets/css/index.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+    </head>
+
+    <body>
+        
+        <header class="header">
+            <div class="wrapper flexSpace">
+                <a href="./index.html" class="header__logo" title="Go to home page">
+                    <img src="../assets/img/logo.jpg" alt="Image logo">
+                </a>
+    
+                <nav class="header__nav">
+                    <a href="./index.html">Главная</a>
+                    <a href="#">Горящие туры</a>
+                    <a href="#">Новости</a>
+                    <a href="#">Наши услуги</a>
+                    <a href="#">Наша команда</a>
+                    <a href="#">Отзывы</a>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <article class="page backgroundHeader flexCenter shadowOverlay">
+                <article class="page__indexTitle">
+                    <h1 class="indexTitle__title">Yakutia Tripp</h1>
+                    <p class="indexTitle__subtext">туры по якутии</p>
+                </article>
+
+                <form class="orderForm">
+                    <section class="orderForm__inputs">
+                        <input type="text" placeholder="Откуда">
+                        <input type="text" placeholder="Куда">
+                        <input 
+                            type="text" 
+                            placeholder="Дата Вылета" 
+                            onfocus="(this.type='date')"
+                            onblur="(this.type='text')">
+                        <select name="nightCount" id="nightCount" required>
+                            <option value="" disabled selected>Кол-во человек</option>
+                            <option value="7">7</option>
+                            <option value="14">14</option>
+                            <option value="24">24</option>
+                            <option value="30">30</option>
+                        </select>
+                        <select name="humanCount" id="humanCount" required>
+                            <option value="" disabled selected>Кол-во ночей</option>
+                            <option value="7">7</option>
+                            <option value="14">14</option>
+                            <option value="24">24</option>
+                            <option value="30">30</option>
+                        </select>
+                    </section>
+
+                    <button class="filledBtn orderForm__btn">найти</button>
+                </form>
+            </article>
+
+            <article class="page flexCenterStart no100vh">
+                <article class="page__subtitle">
+                    горящие туры
+                </article>
+
+                <article class="gridImage">
+                    <a href="./trip1.html" class="gridImage__item" title="Go to tour">
+                        <article class="shadowContent">
+                            Термальный источник «Нахот» - Горнолыжная база «Горизонт»
+                        </article>
+                        <img src="../assets/img/tur1.jpg" alt="Landscape">
+                    </a>
+
+                    <a href="./trip2.html" class="gridImage__item" title="Go to tour">
+                        <article class="shadowContent">
+                            Зимние Ленские Столбы
+                        </article>
+                        <img src="../assets/img/tur2.jpg" alt="Landscape">
+                    </a>
+
+                    <a href="./trip3.html" class="gridImage__item" title="Go to tour">
+                        <article class="shadowContent">
+                            Зимняя подледная рыбалка
+                        </article>
+                        <img src="../assets/img/tur3.jpg" alt="Landscape">
+                    </a>
+
+                    <a href="./trip4.html" class="gridImage__item" title="Go to tour">
+                        <article class="shadowContent">
+                            Наскальные рисунки и удивительные пещеры Хангаласского улуса
+                        </article>
+                        <img src="../assets/img/tur4.jpg" alt="Landscape">
+                    </a>
+
+                    <a href="./trip5.html" class="gridImage__item" title="Go to tour">
+                        <article class="shadowContent">
+                            Рыбалка на р. Буотама
+                        </article>
+                        <img src="../assets/img/tur5.jpg" alt="Landscape">
+                    </a>
+
+                    <a href="./trip6.html" class="gridImage__item" title="Go to tour">
+                        <article class="shadowContent">
+                            Сплав по р. Буотама
+                        </article>
+                        <img src="../assets/img/tur6.jpg" alt="Landscape">
+                    </a>
+
+                    <a href="./trip7.html" class="gridImage__item" title="Go to tour">
+                        <article class="shadowContent">
+                            Булуус - Турук Хайа - бизонарий «Усть-Буотама»
+                        </article>
+                        <img src="../assets/img/tur7.jpg" alt="Landscape">
+                    </a>
+
+                    <a href="./trip8.html" class="gridImage__item" title="Go to tour">
+                        <article class="shadowContent">
+                            Песчаные дюны «Тукулан» - бизонарий «Усть-Буотама»
+                        </article>
+                        <img src="../assets/img/tur8.jpg" alt="Landscape">
+                    </a>
+
+                    <a href="./trip9.html" class="gridImage__item" title="Go to tour">
+                        <article class="shadowContent">
+                            Еланка – р. Б. Кэтэмэ
+                        </article>
+                        <img src="../assets/img/tur9.jpg" alt="Landscape">
+                    </a>
+                </article>
+            </article>
+
+            <article class="page flexCenterStart no100vh">
+                <article class="page__subtitle">
+                    новости
+                </article>
+
+                <article class="page__subtext">
+                    Тур Термальный источник «Нахот» - Горнолыжная база «Горизонт»
+                </article>
+
+                <article class="gridNews">
+                    <div>
+                        <article class="newsCard">
+                            <article class="newsCard__wrap">
+                                <section class="newsCard__img">
+                                    <img src="../assets/img/newsImage1.png" alt="Landscape">
+                                </section>
+
+                                <section class="newsCard__desc">
+                                    <p class="newsCard__time">4 дня назад</p>
+                                    <h1 class="newsCard__title">Title</h1>
+                                    <p class="newsCard__subtitle">
+                                        Lorem ipsum dolor sit amet consectetur 
+                                        adipisicing elit. Suscipit, corrupti. 
+                                        Ab dolorum libero eveniet harum 
+                                        commodi corrupti sequi debitis ut 
+                                        ipsam quia, reprehenderit quidem ea?
+                                    </p>
+                                </section>
+
+                                <a href="" class="filledBtn filledBtn_contentRead newsCard__btn" title="Go to news">Читать даллее...</a>
+                            </article>
+                        </article>
+                    </div>
+                    
+                    <div>
+                        <article class="newsCard">
+                            <article class="newsCard__wrap">
+                                <section class="newsCard__img">
+                                    <img src="../assets/img/newsImage2.png" alt="Landscape">
+                                </section>
+
+                                <section class="newsCard__desc">
+                                    <p class="newsCard__time">4 дня назад</p>
+                                    <h1 class="newsCard__title">Title</h1>
+                                    <p class="newsCard__subtitle">
+                                        Lorem ipsum dolor sit amet consectetur 
+                                        adipisicing elit. Suscipit, corrupti. 
+                                        Ab dolorum libero eveniet harum 
+                                        commodi corrupti sequi debitis ut 
+                                        ipsam quia, reprehenderit quidem ea?
+                                    </p>
+                                </section>
+
+                                <a href="" class="filledBtn filledBtn_contentRead newsCard__btn" title="Go to news">Читать даллее...</a>
+                            </article>
+                        </article>
+                    </div>
+                    
+                    <div>
+                        <article class="newsCard">
+                            <article class="newsCard__wrap">
+                                <section class="newsCard__img">
+                                    <img src="../assets/img/newsImage3.png" alt="Landscape">
+                                </section>
+
+                                <section class="newsCard__desc">
+                                    <p class="newsCard__time">4 дня назад</p>
+                                    <h1 class="newsCard__title">Title</h1>
+                                    <p class="newsCard__subtitle">
+                                        Lorem ipsum dolor sit amet consectetur 
+                                        adipisicing elit. Suscipit, corrupti. 
+                                        Ab dolorum libero eveniet harum 
+                                        commodi corrupti sequi debitis ut 
+                                        ipsam quia, reprehenderit quidem ea?
+                                    </p>
+                                </section>
+
+                                <a href="" class="filledBtn filledBtn_contentRead newsCard__btn" title="Go to news">Читать даллее...</a>
+                            </article>
+                        </article>
+                    </div>
+                </article>
+
+                <article class="page__subtext">
+                    Дорогие наши туристы, приглашаем вас в тур на величавые Ленские Столбы
+                </article>
+
+
+                <article class="gridNews">
+                    <div>
+                        <article class="newsCard">
+                            <article class="newsCard__wrap">
+                                <section class="newsCard__img">
+                                    <img src="../assets/img/newsImage5.png" alt="Landscape">
+                                </section>
+
+                                <section class="newsCard__desc">
+                                    <p class="newsCard__time">4 дня назад</p>
+                                    <h1 class="newsCard__title">Title</h1>
+                                    <p class="newsCard__subtitle">
+                                        Lorem ipsum dolor sit amet consectetur 
+                                        adipisicing elit. Suscipit, corrupti. 
+                                        Ab dolorum libero eveniet harum 
+                                        commodi corrupti sequi debitis ut 
+                                        ipsam quia, reprehenderit quidem ea?
+                                    </p>
+                                </section>
+
+                                <a href="" class="filledBtn filledBtn_contentRead newsCard__btn" title="Go to news">Читать даллее...</a>
+                            </article>
+                        </article>
+                    </div>
+                </article>
+
+                <article class="page__subtext">
+                    Тур ледник БУЛУУС - ТУРУК ХАЙА - БИЗОНАРИЙ«Усть-Буотама»
+                </article>
+
+                <article class="gridNews">
+                    <div>
+                        <article class="newsCard">
+                            <article class="newsCard__wrap">
+                                <section class="newsCard__img">
+                                    <img src="../assets/img/newsImage6.png" alt="Landscape">
+                                </section>
+
+                                <section class="newsCard__desc">
+                                    <p class="newsCard__time">4 дня назад</p>
+                                    <h1 class="newsCard__title">Title</h1>
+                                    <p class="newsCard__subtitle">
+                                        Lorem ipsum dolor sit amet consectetur 
+                                        adipisicing elit. Suscipit, corrupti. 
+                                        Ab dolorum libero eveniet harum 
+                                        commodi corrupti sequi debitis ut 
+                                        ipsam quia, reprehenderit quidem ea?
+                                    </p>
+                                </section>
+
+                                <a href="" class="filledBtn filledBtn_contentRead newsCard__btn" title="Go to news">Читать даллее...</a>
+                            </article>
+                        </article>
+                    </div>
+
+                    <div>
+                        <article class="newsCard">
+                            <article class="newsCard__wrap">
+                                <section class="newsCard__img">
+                                    <img src="../assets/img/newsImage7.png" alt="Landscape">
+                                </section>
+
+                                <section class="newsCard__desc">
+                                    <p class="newsCard__time">4 дня назад</p>
+                                    <h1 class="newsCard__title">Title</h1>
+                                    <p class="newsCard__subtitle">
+                                        Lorem ipsum dolor sit amet consectetur 
+                                        adipisicing elit. Suscipit, corrupti. 
+                                        Ab dolorum libero eveniet harum 
+                                        commodi corrupti sequi debitis ut 
+                                        ipsam quia, reprehenderit quidem ea?
+                                    </p>
+                                </section>
+
+                                <a href="" class="filledBtn filledBtn_contentRead newsCard__btn" title="Go to news">Читать даллее...</a>
+                            </article>
+                        </article>
+                    </div>
+
+                    <div>
+                        <article class="newsCard">
+                            <article class="newsCard__wrap">
+                                <section class="newsCard__img">
+                                    <img src="../assets/img/newsImage8.png" alt="Landscape">
+                                </section>
+
+                                <section class="newsCard__desc">
+                                    <p class="newsCard__time">4 дня назад</p>
+                                    <h1 class="newsCard__title">Title</h1>
+                                    <p class="newsCard__subtitle">
+                                        Lorem ipsum dolor sit amet consectetur 
+                                        adipisicing elit. Suscipit, corrupti. 
+                                        Ab dolorum libero eveniet harum 
+                                        commodi corrupti sequi debitis ut 
+                                        ipsam quia, reprehenderit quidem ea?
+                                    </p>
+                                </section>
+
+                                <a href="" class="filledBtn filledBtn_contentRead newsCard__btn" title="Go to news">Читать даллее...</a>
+                            </article>
+                        </article>
+                    </div>
+            </article>
+
+            <article class="page flexCenterStart no100vh">
+                <article class="page__subtitle">
+                    О нас
+                </article>
+
+                <article class="gridAbout">
+                    <section class="page__aboutImg">
+                        <img src="../assets/img/logo.jpg" alt="Logo">
+                    </section>
+
+                    <section class="page__aboutDesc">
+                        <article class="textCard">
+                            <h2>Lorem, ipsum dolor.</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Eos obcaecati ad quas, in praesentium 
+                                aliquam atque culpa tempora distinctio dolores voluptatibus 
+                                deleniti voluptatum accusantium illo!
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Eos obcaecati ad quas, in praesentium 
+                                aliquam atque culpa tempora distinctio dolores voluptatibus 
+                                deleniti voluptatum accusantium illo!
+                            </p>
+                        </article>
+                    </section>
+                </article>
+            </article>
+
+            <article class="page flexCenterStart no100vh">
+                <article class="page__subtitle mg100Bottom">
+                    Отзывы
+                </article>
+
+                <artilce class="gridFeedback">
+                    <article class="feedbackCard">
+                            <section class="feedbackCard__img">
+                                <img src="../assets/img/avatar2.jpg" alt="Avatar Feedback">
+                            </section>
+
+                            <section class="feedbackCard__desc">
+                                <h2 class="feedbackCard__title">Виктор</h2>
+                                <p class="feedbackCard__subtitle">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                    Reiciendis perspiciatis quas error fugiat voluptatem enim.
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                    Reiciendis perspiciatis quas error fugiat voluptatem enim.
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                </p>
+                            </section>
+                    </article>
+
+                    <article class="feedbackCard">
+                            <section class="feedbackCard__img">
+                                <img src="../assets/img/avatar3.jpg" alt="Avatar Feedback">
+                            </section>
+
+                            <section class="feedbackCard__desc">
+                                <h2 class="feedbackCard__title">Юрий</h2>
+                                <p class="feedbackCard__subtitle">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                    Reiciendis perspiciatis quas error fugiat voluptatem enim.
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                    Reiciendis perspiciatis quas error fugiat voluptatem enim.
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                </p>
+                            </section>
+                    </article>
+
+                    <article class="feedbackCard">
+                        <section class="feedbackCard__img">
+                            <img src="../assets/img/avatar1.jpg" alt="Avatar Feedback">
+                        </section>
+
+                        <section class="feedbackCard__desc">
+                            <h2 class="feedbackCard__title">Алина</h2>
+                            <p class="feedbackCard__subtitle">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                Reiciendis perspiciatis quas error fugiat voluptatem enim.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                Reiciendis perspiciatis quas error fugiat voluptatem enim.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            </p>
+                        </section>
+                    </article>
+                </artilce>
+            </article>
+
+            <article class="page flexCenterStart no100vh">
+                <article class="page__subtitle">
+                    наша команда
+                </article>
+
+                <article class="gridEmploy mg100Bottom">
+                    <article class="employCard">
+                        <a href="#">
+                            <div class="employCard__wrap">
+                                <section class="employCard__img">
+                                    <img src="../assets/img/avatar1.jpg" alt="Employ">
+                                    <div class="shadowContent bdR100">
+                                        контакты
+                                    </div>
+                                </section>
+                                <section class="employCard__desc">алина адыякова</section>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="employCard">
+                        <a href="#">
+                            <div class="employCard__wrap">
+                                <section class="employCard__img">
+                                    <img src="../assets/img/avatar2.jpg" alt="Employ">
+                                    <div class="shadowContent bdR100">
+                                        контакты
+                                    </div>
+                                </section>
+                                <section class="employCard__desc">щуров кирилл</section>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="employCard">
+                        <a href="#">
+                            <div class="employCard__wrap">
+                                <section class="employCard__img">
+                                    <img src="../assets/img/avatar3.jpg" alt="Employ">
+                                    <div class="shadowContent bdR100">
+                                        контакты
+                                    </div>
+                                </section>
+                                <section class="employCard__desc">юрий коваленко</section>
+                            </div>
+                        </a>
+                    </article>
+                </article>
+            </article>
+        </main>
+
+        <footer class="footer">
+            <section class="footer__desc">
+                <a href="./home.html">Компания Yakutia Tripp</a>
+            </section>
+
+            <section class="footer__contacts">
+                <span>Контакты:</span>
+                <a href="tel:+79644199972" title="Go to tel app">Тел: +79644199972</a>
+                <a href="https://wa.me/79644199972" title="Go to wa app">Whatsapp: https://wa.me/79644199972</a>
+                <a href="https://instagram.com/yakutiatripp/" title="Go to instagram">Instagram: https://instagram.com/yakutiatripp/</a>
+                <a href="mailto:bony_castle_@mail.ru" title="Go to mailto app">Email: bony_castle_@mail.ru</a>
+            </section>
+        </footer>
+    </body>
+</html>

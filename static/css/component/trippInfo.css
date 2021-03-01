@@ -1,0 +1,13 @@
+.trippInfo {
+    width: 100%;
+    max-width: 1200px;
+    padding: 10px 25px;
+    margin-bottom: 20px;
+    border: 2px dashed #4E8C45;
+
+    font: 1rem "Lato", sans-serif;
+}
+
+.trippInfo__desc {
+    text-align: justify;
+}

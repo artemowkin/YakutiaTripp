@@ -1,0 +1,39 @@
+/* Media & Fonts */
+
+@import url(https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap);
+
+
+/* Component */
+
+@import url(./component/newsCard.css);
+@import url(./component/feedbackCard.css);
+@import url(./component/gridFeedback.css);
+@import url(./component/textCard.css);
+@import url(./component/gridAbout.css);
+@import url(./component/shadowContent.css);
+@import url(./component/trippInfo.css);
+@import url(./component/trippBlockText.css);
+@import url(./component/footer.css);
+@import url(./component/gridEmploy.css);
+@import url(./component/employCard.css);
+@import url(./component/imgContainer.css);
+@import url(./component/gridNews.css);
+@import url(./component/gridImage.css);
+@import url(./component/filledBtn.css);
+@import url(./component/orderForm.css);
+@import url(./component/page.css);
+@import url(./component/header.css);
+@import url(./component/wrapper.css);
+@import url(./component/main.css);
+
+
+/* Other */
+
+@import url(./other/normalize.css);
+@import url(./other/myNormalize.css);
+
+
+/* Modification */
+
+@import url(./modification/modification.css);
+

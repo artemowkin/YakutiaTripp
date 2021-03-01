@@ -1,0 +1,45 @@
+.filledBtn {
+    position: relative;
+
+    padding: 15px 55px;
+    border: 2px solid #4E8C45;
+
+    font: .9rem "Lato" sans-serif;  
+    letter-spacing: .1rem;
+    line-height: normal;
+    color: #4E8C45;
+    text-transform: uppercase;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+}
+
+.filledBtn:before {
+    content: "Найти";
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 0%;
+    height: 100%;
+    
+    background-color: #4E8C45;
+    color: white;
+    white-space: nowrap;
+    
+    overflow: hidden;
+    transition: all .2s ease-in-out;
+}
+
+.filledBtn:hover:before {
+    width: 101%;
+}
+
+.filledBtn_contentRead:before {
+    content: "Читать далее...";
+}

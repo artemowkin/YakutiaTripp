@@ -1,0 +1,14 @@
+.gridFeedback {
+    display: grid;
+    grid-template: repeat(1, 1fr) / repeat(auto-fit, minmax(240px, 1fr));
+    justify-items: center;
+    gap: 100px 30px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+@media (max-width: 1280px) {
+    .gridFeedback {
+        grid-template-columns: minmax(240px, 1fr);
+    }
+}

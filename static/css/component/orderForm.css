@@ -1,0 +1,82 @@
+.orderForm {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    margin-top: 650px;
+    margin-bottom: 40px;
+
+    background-color: white;
+    box-shadow: 0px 5px 15px 2px rgba(0, 0, 0, 0.500);
+}
+
+.orderForm__inputs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.orderForm__inputs input {
+    margin-left: 15px;
+    padding: 10px 5px;
+    width: 180px;
+
+    border: 2px solid rgb(120, 120, 120);
+    border-radius: 5px;
+
+    font: 1.2rem "Lato", sans-serif;
+    outline: none;
+    
+    transition: all .2s ease;
+}
+
+.orderForm__inputs input:focus {
+    background-color: rgba(0, 179, 0, .400);
+    border-color: rgb(0, 179, 0)
+}
+
+.orderForm__inputs select {
+    padding: 9px 5px;
+    margin-left: 15px;
+    border: 2px solid rgb(120, 120, 120);
+    border-radius: 5px;
+
+    font: 1.2rem "Lato", sans-serif;
+    outline: none;
+}
+
+.orderForm__btn {
+    margin-left: 20px;
+}
+
+.orderForm__inputs > *:first-child {
+    margin-left: 0;
+}
+
+@media (max-width: 1210px) {
+    .orderForm {
+        flex-direction: column;
+    }
+
+    .orderForm__inputs {
+        flex-direction: column;
+    }
+
+    .orderForm__inputs > * {
+        margin-left: 0 !important;
+        margin-bottom: 15px;
+        width: 100% !important;
+    }
+
+    .orderForm > button {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+}
+
+@media (max-width: 360px) {
+    .orderForm {
+        margin-top: 850px;
+    }
+}
