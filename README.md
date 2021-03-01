@@ -63,5 +63,5 @@ repository](https://github.com/PurpleBooth/a-good-readme-template/tags).
 
 ## License
 
-This project is licensed under the [GNU General Public License](LICENSE.md)
-- see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the [GNU General Public License](LICENSE.md) -
+see the [LICENSE.md](LICENSE.md) file for details
