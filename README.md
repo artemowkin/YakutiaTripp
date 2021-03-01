@@ -26,7 +26,6 @@ Create a file with environment variables `.env` with the following content:
 
 ```
 DJANGO_SECRET_KEY="<django_secret_key>"
-DJANGO_ENVIRONMENT=development
 ```
 
 After that you need to create a new PostgreSQL DB with name `yakutiatripp`
@@ -35,7 +34,7 @@ After that you need to create a new PostgreSQL DB with name `yakutiatripp`
 $ createdb yakutiatripp
 ```
 
-And create a new superuser for DB with name `django`
+And create a new superuser for DB with name `django` and the same password
 
 ## Running the tests
 
