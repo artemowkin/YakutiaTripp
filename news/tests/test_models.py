@@ -24,6 +24,14 @@ class NewsTest(TestCase):
         )
 
         self.assertEqual(news.title, 'some news')
-        self.assertEqual(news.preview.url, 'hello.png')
+        self.assertEqual(news.preview.url, '/media/hello.png')
         self.assertEqual(news.text, 'something new')
         self.assertEqual(news.pub_date, datetime.date.today())
+
+    def test_string_representation(self):
+        """Test: does News model entry __str__ return news title"""
+        news = News.objects.create(
+            title="some news", preview="hello.png", text="something new"
+        )
+
+        self.assertEqual(str(news), news.title)
