@@ -9,5 +9,9 @@ class News(models.Model):
     text = models.TextField()
     pub_date = models.DateField(auto_now=True)
 
+    class Meta:
+        verbose_name = 'news'
+        verbose_name_plural = 'news'
+
     def __str__(self):
         return self.title
