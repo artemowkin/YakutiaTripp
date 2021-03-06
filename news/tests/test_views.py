@@ -1,3 +1,4 @@
+import datetime
 import json
 
 from django.test import TestCase
@@ -23,7 +24,12 @@ class AllNewsViewTest(TestCase):
         )
         serialized_news = NewsSerializer(news)
         response = self.client.get(reverse('all_news'))
-        response_json = JSONRenderer().render(response.content)
+        response_json = json.loads(response.content)
 
         self.assertEqual(len(response_json), News.objects.count())
+        self.assertEqual(response_json[0], {
+            'title': 'some news', 'preview': '/media/test.png',
+            'text': 'something new',
+            'pub_date': datetime.date.today().isoformat()
+        })
         self.assertContains(response, news.title)
