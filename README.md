@@ -14,13 +14,8 @@ If you want to run this project on your PC you need to install:
 
 * `python-3.9`
 * `pipenv`
-* `postgresql`
-
-After you install it you need to install dependencies using pipenv
-
-```
-$ pipenv install --dev
-```
+* `docker`
+* `docker-compose`
 
 Create a file with environment variables `.env` with the following content:
 
@@ -28,20 +23,24 @@ Create a file with environment variables `.env` with the following content:
 DJANGO_SECRET_KEY="<django_secret_key>"
 ```
 
-After that you need to create a new PostgreSQL DB with name `yakutiatripp`
+Run building of docker container:
 
 ```
-$ createdb yakutiatripp
+$ sudo docker-compose build
 ```
 
-And create a new superuser for DB with name `django` and the same password
+And up this container
+
+```
+$ sudo docker-compose up -d
+```
 
 ## Running the tests
 
 To run the tests you need to run the following command:
 
 ```
-$ python manage.py test
+$ docker-compose run web python manage.py test
 ```
 
 ## Contributing

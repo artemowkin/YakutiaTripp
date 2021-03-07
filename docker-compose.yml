@@ -4,7 +4,10 @@ services:
     web:
         env_file:
             - .env
+        environment:
+            - DJANGO_DB_HOST=db
         build: .
+        command: python manage.py migrate
         command: python manage.py runserver 0.0.0.0:8000
         volumes:
             - .:/code

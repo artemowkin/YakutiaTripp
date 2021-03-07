@@ -77,7 +77,7 @@ DATABASES = {
         'NAME': get_env('DJANGO_DB_NAME', 'yakutiatripp'),
         'USER': get_env('DJANGO_DB_USER', 'django'),
         'PASSWORD': get_env('DJANGO_DB_PASSWORD', 'django'),
-        'HOST': 'db',
+        'HOST': get_env('DJANGO_DB_HOST', 'localhost'),
         'PORT': 5432,
     }
 }
