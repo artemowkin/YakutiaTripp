@@ -1,0 +1,20 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /api/news/:
+    get:
+      operationId: listAllNews
+      description: Return all news
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+          description: ''
+      tags:
+      - api
