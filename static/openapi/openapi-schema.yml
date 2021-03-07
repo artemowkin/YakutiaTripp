@@ -23,7 +23,7 @@ paths:
                   pub_date: "2021-03-06"
           description: ''
       tags:
-      - api
+      - news
   /api/news/{news_pk}/:
     get:
       operationId: concreteNews
@@ -50,7 +50,7 @@ paths:
                   pub_date: "2021-03-06"
           description: ''
       tags:
-      - api
+      - news
   /api/last/:
     get:
       operationId: listLastNews
@@ -71,4 +71,4 @@ paths:
                   pub_date: "2021-03-06"
           description: ''
       tags:
-      - api
+      - news
