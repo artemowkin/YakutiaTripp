@@ -16,7 +16,35 @@ paths:
                 type: array
                 items: {}
                 example:
-                - title: Some title
+                - pk: "2668b035-ef3d-4415-a68c-00965d75c2ef"
+                  title: Some title
+                  preview: "/media/news/image.jpg"
+                  text: Some text
+                  pub_date: "2021-03-06"
+          description: ''
+      tags:
+      - api
+  /api/news/{news_pk}/:
+    get:
+      operationId: concreteNews
+      description: Return a concrete news
+      parameters:
+      - name: news_pk
+        in: path
+        required: true
+        description: "UUID of news"
+        schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                items: {}
+                example:
+                  pk: "2668b035-ef3d-4415-a68c-00965d75c2ef"
+                  title: Some title
                   preview: "/media/news/image.jpg"
                   text: Some text
                   pub_date: "2021-03-06"
