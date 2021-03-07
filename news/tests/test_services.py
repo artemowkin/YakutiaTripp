@@ -1,3 +1,5 @@
+import datetime
+
 from django.test import TestCase
 
 from ..services import GetNewsService
@@ -25,3 +27,15 @@ class GetNewsServiceTest(TestCase):
         entry = self.service.get_concrete(self.news.pk)
 
         self.assertEqual(entry, self.news)
+
+    def test_get_last_returns_last_9_entries(self):
+        """Test: does get_last method return last 9 news"""
+        for i in range(1, 10):
+            News.objects.create(
+                title=f"news {i}", preview="hello.png", text="some text",
+                pub_date=datetime.date.today()+datetime.timedelta(days=i)
+            )
+
+        entries = self.service.get_last()
+
+        self.assertEqual(entries.count(), 9)

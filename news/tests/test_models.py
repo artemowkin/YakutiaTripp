@@ -2,6 +2,7 @@ import uuid
 import datetime
 
 from django.test import TestCase
+from django.db.utils import IntegrityError
 
 from ..models import News
 
@@ -33,3 +34,10 @@ class NewsTest(TestCase):
     def test_pk_is_uuid(self):
         """Test: is model pk UUID field"""
         self.assertIsInstance(self.news.pk, uuid.UUID)
+
+    def test_unique_title_constraint(self):
+        """Test: is title unique"""
+        with self.assertRaises(IntegrityError):
+            second_news = News.objects.create(
+                title="some news", preview="hello.png", text="something new"
+            )

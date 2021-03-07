@@ -9,12 +9,13 @@ class News(models.Model):
     uuid = models.UUIDField(
         primary_key=True, default=uuid.uuid4, editable=False
     )
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=255, unique=True)
     preview = models.ImageField(upload_to="news")
     text = models.TextField()
     pub_date = models.DateField(auto_now=True)
 
     class Meta:
+        ordering = ('-pub_date', 'title')
         verbose_name = 'news'
         verbose_name_plural = 'news'
 
