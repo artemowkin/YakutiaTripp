@@ -17,7 +17,7 @@ DEBUG = get_env('DJANGO_DEBUG', 1)
 
 ENVIRONMENT = get_env('DJANGO_ENVIRONMENT', 'development')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -77,8 +77,8 @@ DATABASES = {
         'NAME': get_env('DJANGO_DB_NAME', 'yakutiatripp'),
         'USER': get_env('DJANGO_DB_USER', 'django'),
         'PASSWORD': get_env('DJANGO_DB_PASSWORD', 'django'),
-        'HOST': 'localhost',
-        'PORT': '',
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
 
