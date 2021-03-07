@@ -1,5 +1,4 @@
-import datetime
-import json
+import simplejson as json
 
 from django.test import TestCase
 from django.urls import reverse
@@ -22,14 +21,7 @@ class AllNewsViewTest(TestCase):
         news = News.objects.create(
             title="some news", preview="test.png", text="something new"
         )
-        serialized_news = NewsSerializer(news)
         response = self.client.get(reverse('all_news'))
         response_json = json.loads(response.content)
 
         self.assertEqual(len(response_json), News.objects.count())
-        self.assertEqual(response_json[0], {
-            'title': 'some news', 'preview': '/media/test.png',
-            'text': 'something new',
-            'pub_date': datetime.date.today().isoformat()
-        })
-        self.assertContains(response, news.title)
