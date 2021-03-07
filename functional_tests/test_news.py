@@ -29,7 +29,7 @@ class NewsEndpointsTest(LiveServerTestCase):
             'pub_date': datetime.date.today().isoformat()
         })
 
-    def test_api_news_endpoint_returns_correct_data(self):
+    def test_api_news_for_concrete_news_endpoint_returns_correct_data(self):
         """Test: does /api/news/{news_pk}/ endpoint return correct data"""
         response = self.client.get(
             reverse('concrete_news', args=[self.news.pk])
@@ -41,3 +41,21 @@ class NewsEndpointsTest(LiveServerTestCase):
             'preview': '/media/test.png', 'text': 'something new',
             'pub_date': datetime.date.today().isoformat()
         })
+
+    def test_api_news_last_endpoint_returns_correct_data(self):
+        """Test: does /api/news/last/ endpoint return correct data"""
+        for i in range(9):
+            News.objects.create(
+                title=f"some news {i}", preview="test.png",
+                text="something new"
+            )
+
+        response = self.client.get(reverse('last_news'))
+        response_json = json.loads(response.content)
+
+        self.assertEqual(len(response_json), 9)
+        self.assertIn({
+            'pk': str(self.news.pk), 'title': 'some news',
+            'preview': '/media/test.png', 'text': 'something new',
+            'pub_date': datetime.date.today().isoformat()
+        }, response_json)

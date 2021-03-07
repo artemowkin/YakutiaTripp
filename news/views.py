@@ -27,3 +27,15 @@ class ConcreteNewsView(APIView):
         news = self.service.get_concrete(pk)
         serialized_news = NewsSerializer(news)
         return Response(serialized_news.data)
+
+
+class LastNewsView(APIView):
+    """View to return last news"""
+
+    service = GetNewsService()
+
+    def get(self, request):
+        """Return last news"""
+        news = self.service.get_last()
+        serialized_news = NewsSerializer(news, many=True)
+        return Response(serialized_news.data)

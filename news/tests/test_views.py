@@ -27,3 +27,12 @@ class ConcreteNewsViewTest(TestCase):
         )
         response = self.client.get(reverse('concrete_news', args=[news.pk]))
         self.assertEqual(response.status_code, 200)
+
+
+class LastNewsViewTest(TestCase):
+    """Case of testing LastNewsView"""
+
+    def test_response_status_code(self):
+        """Test: is view response has correct status code"""
+        response = self.client.get(reverse('last_news'))
+        self.assertEqual(response.status_code, 200)

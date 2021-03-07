@@ -51,3 +51,24 @@ paths:
           description: ''
       tags:
       - api
+  /api/last/:
+    get:
+      operationId: listLastNews
+      description: "Return last 9 news"
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+                example:
+                - pk: "2668b035-ef3d-4415-a68c-00965d75c2ef"
+                  title: Some title
+                  preview: "/media/news/image.jpg"
+                  text: Some text
+                  pub_date: "2021-03-06"
+          description: ''
+      tags:
+      - api
