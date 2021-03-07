@@ -19,7 +19,7 @@ class NewsSerializerTest(TestCase):
         serializer = NewsSerializer(news)
 
         self.assertEqual(serializer.data, {
-            'title': 'some news', 'preview': '/media/hello.png',
-            'text': 'something new',
+            'pk': str(news.pk), 'title': 'some news',
+            'preview': '/media/hello.png', 'text': 'something new',
             'pub_date': datetime.date.today().isoformat()
         })

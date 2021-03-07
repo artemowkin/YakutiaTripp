@@ -8,5 +8,5 @@ class NewsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = News
-        fields = ['title', 'preview', 'text', 'pub_date']
-        read_only_fields = ['pub_date']
+        fields = ['pk', 'title', 'preview', 'text', 'pub_date']
+        read_only_fields = ['pk', 'pub_date']

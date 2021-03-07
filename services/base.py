@@ -1,5 +1,7 @@
+from uuid import UUID
+
 from django.core.exceptions import ImproperlyConfigured
-from django.db.models import QuerySet
+from django.db.models import QuerySet, Model
 
 
 class BaseGetService:
@@ -16,3 +18,7 @@ class BaseGetService:
     def get_all(self) -> QuerySet:
         """Return all model entries"""
         return self.model.objects.all()
+
+    def get_concrete(self, pk: UUID) -> Model:
+        """Return a concrete model entry by pk"""
+        return self.model.objects.get(pk=pk)

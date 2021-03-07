@@ -15,3 +15,15 @@ class AllNewsView(APIView):
         all_news = self.service.get_all()
         serialized_news = NewsSerializer(all_news, many=True)
         return Response(serialized_news.data)
+
+
+class ConcreteNewsView(APIView):
+    """View to return a concrete news"""
+
+    service = GetNewsService()
+
+    def get(self, request, pk):
+        """Return a concrete news"""
+        news = self.service.get_concrete(pk)
+        serialized_news = NewsSerializer(news)
+        return Response(serialized_news.data)

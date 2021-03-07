@@ -9,13 +9,19 @@ class GetNewsServiceTest(TestCase):
 
     def setUp(self):
         self.service = GetNewsService()
+        self.news = News.objects.create(
+            title="something new", preview="hello.png", text="some text"
+        )
 
     def test_get_all_returns_all_entries(self):
         """Test: get_all method returns all news entries"""
-        news = News.objects.create(
-            title="something new", preview="hello.png", text="some text"
-        )
         all_entries = self.service.get_all()
 
         self.assertEqual(all_entries.count(), News.objects.count())
-        self.assertEqual(all_entries[0], news)
+        self.assertEqual(all_entries[0], self.news)
+
+    def test_get_concrete_returns_a_concrete_entry(self):
+        """Test: get_concrete method returns a concrete news entry"""
+        entry = self.service.get_concrete(self.news.pk)
+
+        self.assertEqual(entry, self.news)

@@ -16,12 +16,14 @@ class AllNewsViewTest(TestCase):
         response = self.client.get(reverse('all_news'))
         self.assertEqual(response.status_code, 200)
 
-    def test_response_has_correct_data(self):
-        """Test: has response correct serialized news"""
-        news = News.objects.create(
-            title="some news", preview="test.png", text="something new"
-        )
-        response = self.client.get(reverse('all_news'))
-        response_json = json.loads(response.content)
 
-        self.assertEqual(len(response_json), News.objects.count())
+class ConcreteNewsViewTest(TestCase):
+    """Case of testing ConcreteNewsView"""
+
+    def test_response_status_code(self):
+        """Test: is view response has correct status code"""
+        news = News.objects.create(
+            title="some news", preview="hello.png", text="something new"
+        )
+        response = self.client.get(reverse('concrete_news', args=[news.pk]))
+        self.assertEqual(response.status_code, 200)

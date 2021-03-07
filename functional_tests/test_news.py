@@ -8,7 +8,8 @@ from news.models import News
 from news.serializers import NewsSerializer
 
 
-class TestNewsGetAllEndpoint(LiveServerTestCase):
+class NewsEndpointsTest(LiveServerTestCase):
+    """Test of news endpoints"""
 
     def setUp(self):
         self.news = News.objects.create(
@@ -17,12 +18,26 @@ class TestNewsGetAllEndpoint(LiveServerTestCase):
         self.serialized_news = NewsSerializer(self.news)
 
     def test_api_news_endpint_returns_correct_data(self):
-        """Test: Does /api/news/ endpoint return correct data"""
+        """Test: does /api/news/ endpoint return correct data"""
         response = self.client.get(reverse('all_news'))
         response_json = json.loads(response.content)
 
+        self.assertEqual(len(response_json), News.objects.count())
         self.assertEqual(response_json[0], {
-            'title': 'some news', 'preview': '/media/test.png',
-            'text': 'something new',
+            'pk': str(self.news.pk), 'title': 'some news',
+            'preview': '/media/test.png', 'text': 'something new',
+            'pub_date': datetime.date.today().isoformat()
+        })
+
+    def test_api_news_endpoint_returns_correct_data(self):
+        """Test: does /api/news/{news_pk}/ endpoint return correct data"""
+        response = self.client.get(
+            reverse('concrete_news', args=[self.news.pk])
+        )
+        response_json = json.loads(response.content)
+
+        self.assertEqual(response_json, {
+            'pk': str(self.news.pk), 'title': 'some news',
+            'preview': '/media/test.png', 'text': 'something new',
             'pub_date': datetime.date.today().isoformat()
         })
