@@ -1,7 +1,7 @@
 openapi: 3.0.2
 info:
-  title: ''
-  version: ''
+  title: 'YakutiaTripp API'
+  version: '1.0.0'
 paths:
   /api/news/:
     get:
@@ -15,6 +15,11 @@ paths:
               schema:
                 type: array
                 items: {}
+                example:
+                - title: Some title
+                  preview: "/media/news/image.jpg"
+                  text: Some text
+                  pub_date: "2021-03-06"
           description: ''
       tags:
       - api
