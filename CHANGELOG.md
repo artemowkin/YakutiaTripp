@@ -22,3 +22,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `NewsSerializer` is a serializer for `News` model
 - `ConcreteNewsView` to render a concrete view on `/api/news/` endpoint
 - `LastNewsView` to render last 9 news on `/api/news/last/` endpoint
+- `AllToursView` to render all tours on `/api/tours/` endpoint
+- `GetToursService` is a service to get Tour model entries
+- `Tour` model with `uuid`, `title`, `preview`, `short_description`,
+`about`, `price`, `city_from`, `city_to` and `views` fields
+- `TourDay` model with `weekday`, `description` and `tour` fields
+- `TourSerializer` is a serializer for `Tour` model
