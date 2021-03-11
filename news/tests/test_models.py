@@ -15,12 +15,12 @@ class NewsTest(TestCase):
             title="some news", preview="hello.png", text="something new"
         )
 
-    def test_create_entry_fields(self):
+    def test_create_entry(self):
         """Test: does News model create an entry"""
         self.assertEqual(News.objects.count(), 1)
         self.assertEqual(News.objects.first(), self.news)
 
-    def test_create_entry(self):
+    def test_created_entry_fields(self):
         """Test: does News model create correct entry with correct fields"""
         self.assertEqual(self.news.title, 'some news')
         self.assertEqual(self.news.preview.url, '/media/hello.png')

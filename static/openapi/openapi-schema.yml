@@ -51,7 +51,7 @@ paths:
           description: ''
       tags:
       - news
-  /api/last/:
+  /api/news/last/:
     get:
       operationId: listLastNews
       description: "Return last 9 news"
@@ -72,3 +72,31 @@ paths:
           description: ''
       tags:
       - news
+  /api/tours/:
+    get:
+      operationId: listAllTours
+      description: Return all tours
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+                example:
+                - pk: "2668b035-ef3d-4415-a68c-00965d75c2ef"
+                  title: Some title
+                  preview: "/media/tours/image.jpg"
+                  short_description: Some short description
+                  days:
+                  - weekday: Monday
+                    description: Some description
+                  about: Some about
+                  price: "100.00"
+                  city_from: "Moscow"
+                  city_to: "Moscow"
+                  views: 0
+          description: ''
+      tags:
+      - tours

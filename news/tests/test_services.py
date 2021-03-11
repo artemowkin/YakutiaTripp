@@ -7,7 +7,7 @@ from ..models import News
 
 
 class GetNewsServiceTest(TestCase):
-    """Service to get all news entries"""
+    """Case of testing service to get all news entries"""
 
     def setUp(self):
         self.service = GetNewsService()
