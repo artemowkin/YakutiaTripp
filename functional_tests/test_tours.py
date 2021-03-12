@@ -1,7 +1,5 @@
-import simplejson as json
-
+import requests
 from django.test import LiveServerTestCase
-from django.urls import reverse
 
 from tours.models import Tour, TourDay
 
@@ -21,14 +19,27 @@ class ToursEndpointsTest(LiveServerTestCase):
 
     def test_api_tours_endpoint_returns_correct_data(self):
         """Test: does /api/tours/ endpoint returns correct data"""
-        response = self.client.get(reverse('all_tours'))
-        response_json = json.loads(response.content)
+        response = requests.get(self.live_server_url + '/api/tours/')
 
-        self.assertEqual(len(response_json), Tour.objects.count())
-        self.assertEqual(response_json[0], {
+        self.assertEqual(len(response.json()), Tour.objects.count())
+        self.assertEqual(response.json()[0], {
             'pk': str(self.tour.pk), 'title': 'new tour',
             'preview': '/media/hello.png', 'short_description': 'some words',
             'days': [{'weekday': 'Monday', 'description': 'hike'}],
             'about': 'some about', 'price': '100.00', 'city_from': 'LA',
             'city_to': 'LA', 'views': 0
+        })
+
+    def test_api_tours_for_concrete_tour_endpoint_returns_correct_data(self):
+        """Test: does /api/tours/ endpoint returns correct data"""
+        response = requests.get(
+            self.live_server_url + f'/api/tours/{self.tour.pk}/'
+        )
+
+        self.assertEqual(response.json(), {
+            'pk': str(self.tour.pk), 'title': 'new tour',
+            'preview': '/media/hello.png', 'short_description': 'some words',
+            'days': [{'weekday': 'Monday', 'description': 'hike'}],
+            'about': 'some about', 'price': '100.00', 'city_from': 'LA',
+            'city_to': 'LA', 'views': 1
         })

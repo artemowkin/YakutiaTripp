@@ -24,3 +24,10 @@ class GetToursServiceTest(TestCase):
 
         self.assertEqual(all_tours.count(), Tour.objects.count())
         self.assertEqual(all_tours[0], self.tour)
+
+    def test_get_concrete_returns_correct_tour_with_incremented_views(self):
+        """Test: get_concrete returns a concrete tour with 1 views"""
+        tour = self.service.get_concrete(self.tour.pk)
+
+        self.assertEqual(tour, self.tour)
+        self.assertEqual(tour.views, 1)
