@@ -1,5 +1,7 @@
 from uuid import UUID
 
+from django.db.models import QuerySet
+
 from services.base import BaseGetService
 from .models import Tour
 
@@ -15,3 +17,8 @@ class GetToursService(BaseGetService):
         tour.views = tour.views + 1
         tour.save()
         return tour
+
+    def get_most_viewed(self) -> QuerySet:
+        """Return 3 most viewed tours"""
+        most_viewed_tours = self.get_all().order_by('-views')[:3]
+        return most_viewed_tours

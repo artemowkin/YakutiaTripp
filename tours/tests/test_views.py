@@ -27,3 +27,12 @@ class ConcreteTourViewTest(TestCase):
             reverse('concrete_tour', args=[self.tour.pk])
         )
         self.assertEqual(response.status_code, 200)
+
+
+class MostViewedToursViewTest(TestCase):
+    """Case of testing MostViewedToursView"""
+
+    def test_response_status_code(self):
+        """Test: is view response has correct status code"""
+        response = self.client.get(reverse('most_viewed_tours'))
+        self.assertEqual(response.status_code, 200)

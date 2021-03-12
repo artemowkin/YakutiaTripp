@@ -25,3 +25,14 @@ class ConcreteTourView(APIView):
         tour = self.service.get_concrete(pk)
         serialized_tour = TourSerializer(tour)
         return Response(serialized_tour.data)
+
+
+class MostViewedToursView(APIView):
+    """View to return 3 most viewed tours"""
+
+    service = GetToursService()
+
+    def get(self, request):
+        most_viewed_tours = self.service.get_most_viewed()
+        serialized_tours = TourSerializer(most_viewed_tours, many=True)
+        return Response(serialized_tours.data)

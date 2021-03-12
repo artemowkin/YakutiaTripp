@@ -31,3 +31,20 @@ class GetToursServiceTest(TestCase):
 
         self.assertEqual(tour, self.tour)
         self.assertEqual(tour.views, 1)
+
+    def test_get_most_viewed_returns_three_most_viewed_tours(self):
+        """Test: get_most_viewed returns 3 most viewed tours"""
+        for i in range(3):
+            Tour.objects.create(
+                title=f"tour {i}", preview="hello.png",
+                short_description="some words", about="some about",
+                price="100.00", city_from="LA", city_to="LA"
+            )
+
+        self.tour.views = self.tour.views + 1
+        self.tour.save()
+
+        tours = self.service.get_most_viewed()
+
+        self.assertEqual(tours.count(), 3)
+        self.assertEqual(tours[0], self.tour)

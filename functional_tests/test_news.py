@@ -20,6 +20,7 @@ class NewsEndpointsTest(LiveServerTestCase):
         """Test: does /api/news/ endpoint return correct data"""
         response = requests.get(self.live_server_url + '/api/news/')
 
+        self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.json()), News.objects.count())
         self.assertEqual(response.json()[0], {
             'pk': str(self.news.pk), 'title': 'some news',
@@ -33,6 +34,7 @@ class NewsEndpointsTest(LiveServerTestCase):
             self.live_server_url + f'/api/news/{self.news.pk}/'
         )
 
+        self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json(), {
             'pk': str(self.news.pk), 'title': 'some news',
             'preview': '/media/test.png', 'text': 'something new',
@@ -49,6 +51,7 @@ class NewsEndpointsTest(LiveServerTestCase):
 
         response = requests.get(self.live_server_url + '/api/news/last/')
 
+        self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.json()), 9)
         self.assertIn({
             'pk': str(self.news.pk), 'title': 'some news',
