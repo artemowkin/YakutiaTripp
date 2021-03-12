@@ -34,7 +34,7 @@ class GetToursServiceTest(TestCase):
 
     def test_get_most_viewed_returns_three_most_viewed_tours(self):
         """Test: get_most_viewed returns 3 most viewed tours"""
-        for i in range(3):
+        for i in range(9):
             Tour.objects.create(
                 title=f"tour {i}", preview="hello.png",
                 short_description="some words", about="some about",
@@ -46,5 +46,5 @@ class GetToursServiceTest(TestCase):
 
         tours = self.service.get_most_viewed()
 
-        self.assertEqual(tours.count(), 3)
+        self.assertEqual(tours.count(), 9)
         self.assertEqual(tours[0], self.tour)

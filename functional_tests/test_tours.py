@@ -48,7 +48,7 @@ class ToursEndpointsTest(LiveServerTestCase):
 
     def test_api_tours_most_viewed_returns_correct_data(self):
         """Test: does /api/tours/most_viewed/ endpoint return correct data"""
-        for i in range(3):
+        for i in range(9):
             Tour.objects.create(
                 title=f"tour {i}", preview="hello.png",
                 short_description="some words", about="some about",
@@ -63,7 +63,7 @@ class ToursEndpointsTest(LiveServerTestCase):
         )
 
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(len(response.json()), 3)
+        self.assertEqual(len(response.json()), 9)
         self.assertIn({
             'pk': str(self.tour.pk), 'title': 'new tour',
             'preview': '/media/hello.png', 'short_description': 'some words',
