@@ -162,3 +162,49 @@ paths:
           description: ''
       tags:
       - tours
+  /api/tours/search/{city_from}/{city_to}/{date}/:
+    get:
+      operationId: listSearchedTours
+      description: "Returns searched tours with `city_from`, `city_to`, and `date` weekday field"
+      parameters:
+      - name: city_from
+        in: path
+        required: true
+        description: "city where tour will be started"
+        schema:
+            type: string
+      - name: city_to
+        in: path
+        required: true
+        description: "city where tour will be finished"
+        schema:
+            type: string
+      - name: date
+        in: path
+        required: true
+        description: "date when tour will be started"
+        schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+                example:
+                - pk: "2668b035-ef3d-4415-a68c-00965d75c2ef"
+                  title: Some title
+                  preview: "/media/tours/image.jpg"
+                  short_description: Some short description
+                  days:
+                  - weekday: Monday
+                    description: Some description
+                  about: Some about
+                  price: "100.00"
+                  city_from: "Moscow"
+                  city_to: "Moscow"
+                  views: 0
+          description: ''
+      tags:
+      - tours
