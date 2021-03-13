@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 #### Added
 
 - `AllNewsView` to render all news on `/api/news/` endpoint
+- `BaseService` is a base service class for all services
 - `BaseGetService` is a base service to get model entries
 - `GetNewsService` is a service to get News model entries
 - `News` model with `title`, `preview`, `text`, and `pub_date` fields
@@ -30,3 +31,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `TourSerializer` is a serializer for `Tour` model
 - `ConcreteTourView` to render a concrete tour on `/api/tours/{tour_pk}/` endpoint
 - `GetToursService.get_concrete` returns a concrete tour with incremented `views` field
+- `SearchToursView` to render searched tours on `/api/tours/search/{city_from}/{city_to}/{date}/`
+- `SearchToursService` to search tours by `city_from`, `city_to`, and `date`
