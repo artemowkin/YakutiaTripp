@@ -1,3 +1,5 @@
+import datetime
+
 import requests
 from django.test import LiveServerTestCase
 
@@ -8,14 +10,24 @@ class ToursEndpointsTest(LiveServerTestCase):
     """Test of tours endpoints"""
 
     def setUp(self):
+        self.current_weekday = self._get_current_weekday()
         self.tour = Tour.objects.create(
             title="new tour", preview="hello.png",
             short_description="some words", about="some about",
             price="100.00", city_from="LA", city_to="LA"
         )
         self.tour_day = TourDay.objects.create(
-            weekday="Monday", description="hike", tour=self.tour
+            weekday=self.current_weekday, description="hike", tour=self.tour
         )
+
+    def _get_current_weekday(self):
+        """Return today weekday"""
+        weekdays = [
+            'monday', 'tuesday', 'wednesday', 'thursday',
+            'friday', 'saturday', 'sunday'
+        ]
+        today_weekday = datetime.date.today().weekday()
+        return weekdays[today_weekday]
 
     def test_api_tours_endpoint_returns_correct_data(self):
         """Test: does /api/tours/ endpoint returns correct data"""
@@ -26,7 +38,7 @@ class ToursEndpointsTest(LiveServerTestCase):
         self.assertEqual(response.json()[0], {
             'pk': str(self.tour.pk), 'title': 'new tour',
             'preview': '/media/hello.png', 'short_description': 'some words',
-            'days': [{'weekday': 'Monday', 'description': 'hike'}],
+            'days': [{'weekday': self.current_weekday, 'description': 'hike'}],
             'about': 'some about', 'price': '100.00', 'city_from': 'LA',
             'city_to': 'LA', 'views': 0
         })
@@ -41,7 +53,7 @@ class ToursEndpointsTest(LiveServerTestCase):
         self.assertEqual(response.json(), {
             'pk': str(self.tour.pk), 'title': 'new tour',
             'preview': '/media/hello.png', 'short_description': 'some words',
-            'days': [{'weekday': 'Monday', 'description': 'hike'}],
+            'days': [{'weekday': self.current_weekday, 'description': 'hike'}],
             'about': 'some about', 'price': '100.00', 'city_from': 'LA',
             'city_to': 'LA', 'views': 1
         })
@@ -67,7 +79,29 @@ class ToursEndpointsTest(LiveServerTestCase):
         self.assertIn({
             'pk': str(self.tour.pk), 'title': 'new tour',
             'preview': '/media/hello.png', 'short_description': 'some words',
-            'days': [{'weekday': 'Monday', 'description': 'hike'}],
+            'days': [{'weekday': self.current_weekday, 'description': 'hike'}],
             'about': 'some about', 'price': '100.00', 'city_from': 'LA',
             'city_to': 'LA', 'views': 1
+        }, response.json())
+
+    def test_api_tours_search_returns_correct_data(self):
+        """Test: /api/tours/search/ returns correct data"""
+        second_tour = Tour.objects.create(
+            title=f"second tour", preview="hello.png",
+            short_description="some words", about="some about",
+            price="100.00", city_from="Moscow", city_to="Moscow"
+        )
+        response = requests.get(
+            self.live_server_url +
+            f'/api/tours/search/LA/LA/{datetime.date.today()}/',
+        )
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.json()), 1)
+        self.assertIn({
+            'pk': str(self.tour.pk), 'title': 'new tour',
+            'preview': '/media/hello.png', 'short_description': 'some words',
+            'days': [{'weekday': self.current_weekday, 'description': 'hike'}],
+            'about': 'some about', 'price': '100.00', 'city_from': 'LA',
+            'city_to': 'LA', 'views': 0
         }, response.json())

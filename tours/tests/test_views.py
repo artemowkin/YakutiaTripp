@@ -36,3 +36,14 @@ class MostViewedToursViewTest(TestCase):
         """Test: is view response has correct status code"""
         response = self.client.get(reverse('most_viewed_tours'))
         self.assertEqual(response.status_code, 200)
+
+
+class SearchToursViewTest(TestCase):
+    """Case of testing SearchToursView"""
+
+    def test_responses_status_code(self):
+        """Test: is view response has correct status code"""
+        response = self.client.get(reverse('search_tours', args=[
+            'LA', 'LA', '2021-03-14'
+        ]))
+        self.assertEqual(response.status_code, 200)

@@ -15,7 +15,7 @@ class TourDayTest(TestCase):
             price="100.00", city_from="LA", city_to="LA"
         )
         self.tour_day = TourDay.objects.create(
-            weekday="Monday", description="hike", tour=self.tour
+            weekday="monday", description="hike", tour=self.tour
         )
 
     def test_create_entry_fields(self):
@@ -24,7 +24,7 @@ class TourDayTest(TestCase):
         self.assertEqual(TourDay.objects.first(), self.tour_day)
 
     def test_create_entry(self):
-        self.assertEqual(self.tour_day.weekday, 'Monday')
+        self.assertEqual(self.tour_day.weekday, 'monday')
         self.assertEqual(self.tour_day.description, 'hike')
         self.assertEqual(self.tour_day.tour, self.tour)
 
@@ -43,7 +43,7 @@ class TourTest(TestCase):
             price="100.00", city_from="LA", city_to="LA"
         )
         self.tour_day = TourDay.objects.create(
-            weekday="Monday", description="hike", tour=self.tour
+            weekday="monday", description="hike", tour=self.tour
         )
 
     def test_create_entry(self):

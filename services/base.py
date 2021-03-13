@@ -4,8 +4,8 @@ from django.core.exceptions import ImproperlyConfigured
 from django.db.models import QuerySet, Model
 
 
-class BaseGetService:
-    """Base service to get model entries"""
+class BaseService:
+    """Base service class"""
 
     model = None
 
@@ -14,6 +14,10 @@ class BaseGetService:
             raise ImproperlyConfigured(
                 f"{self.__class__.__name__} must include `model` attribute"
             )
+
+
+class BaseGetService(BaseService):
+    """Base service to get model entries"""
 
     def get_all(self) -> QuerySet:
         """Return all model entries"""

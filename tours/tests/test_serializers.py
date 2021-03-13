@@ -14,7 +14,7 @@ class TourSerializerTest(TestCase):
             price="100.00", city_from="LA", city_to="LA"
         )
         tour_day = TourDay.objects.create(
-            weekday="Monday", description="hike", tour=tour
+            weekday="monday", description="hike", tour=tour
         )
         serializer = TourSerializer(tour)
         serialized_tour = dict(serializer.data)
@@ -25,7 +25,7 @@ class TourSerializerTest(TestCase):
         self.assertEqual(serialized_tour, {
             'pk': str(tour.pk), 'title': 'new tour',
             'preview': '/media/hello.png', 'short_description': 'some words',
-            'days': [{'weekday': 'Monday', 'description': 'hike'}],
+            'days': [{'weekday': 'monday', 'description': 'hike'}],
             'about': 'some about', 'price': '100.00', 'city_from': 'LA',
             'city_to': 'LA', 'views': 0
         })

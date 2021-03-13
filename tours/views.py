@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 from .serializers import TourSerializer
-from .services import GetToursService
+from .services import GetToursService, SearchToursService
 
 
 class AllToursView(APIView):
@@ -35,4 +35,15 @@ class MostViewedToursView(APIView):
     def get(self, request):
         most_viewed_tours = self.service.get_most_viewed()
         serialized_tours = TourSerializer(most_viewed_tours, many=True)
+        return Response(serialized_tours.data)
+
+
+class SearchToursView(APIView):
+    """View to search tours by from, to and date"""
+
+    service = SearchToursService()
+
+    def get(self, request, city_from, city_to, date):
+        searched_tours = self.service.search(city_from, city_to, date)
+        serialized_tours = TourSerializer(searched_tours, many=True)
         return Response(serialized_tours.data)

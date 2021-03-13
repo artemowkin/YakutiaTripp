@@ -1,6 +1,10 @@
-from django.urls import path
+from django.urls import path, register_converter
 
 from . import views
+from .converters import DateConverter
+
+
+register_converter(DateConverter, 'date')
 
 
 urlpatterns = [
@@ -10,5 +14,10 @@ urlpatterns = [
         'most_viewed/',
         views.MostViewedToursView.as_view(),
         name='most_viewed_tours'
+    ),
+    path(
+        'search/<str:city_from>/<str:city_to>/<date:date>/',
+        views.SearchToursView.as_view(),
+        name='search_tours'
     ),
 ]
