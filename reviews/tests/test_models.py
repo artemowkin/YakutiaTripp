@@ -57,3 +57,18 @@ class ReviewTest(TestCase):
         )
         with self.assertRaises(ValidationError):
             incorrect_review.full_clean()
+
+    def test_ordering(self):
+        """Test: are reviews ordering correct"""
+        moderated_review_with_low_rating = Review.objects.create(
+            name="Some review", rating=2, text="some review text",
+            moderated=True
+        )
+        not_moderated_review = Review.objects.create(
+            name="Some review", rating=5, text="some review text",
+            moderated=False
+        )
+
+        self.assertEqual(list(Review.objects.all()), [
+            self.review, moderated_review_with_low_rating, not_moderated_review
+        ])

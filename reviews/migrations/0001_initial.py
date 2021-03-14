@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
                 ('pub_date', models.DateField(auto_now_add=True)),
             ],
             options={
-                'ordering': ('moderated', '-rating'),
+                'ordering': ('-moderated', '-rating', '-pub_date'),
             },
         ),
     ]
