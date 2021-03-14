@@ -24,6 +24,20 @@ input:not(:placeholder-shown):invalid {
     box-shadow: none;
 }
 
+input:not(:placeholder-shown):valid {
+    border-color: rgb(0, 179, 0)
+}
+
+input:focus {
+    background-color: rgba(0, 179, 0, .400);
+    border-color: rgb(0, 179, 0);
+}
+
+fieldset {
+    border: 0;
+    padding: 0;
+}
+
 a {
     text-align: center;
 }

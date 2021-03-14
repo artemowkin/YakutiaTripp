@@ -1,10 +1,12 @@
 .wrapper {
+    position: relative;
+    
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: auto;
 }
 
-.flexSpace {
+.wrapper__flexSpace {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
@@ -12,7 +14,7 @@
 }
 
 @media (max-width: 880px) {
-    .flexSpace {
+    .wrapper__flexSpace {
         justify-content: center;
         flex-direction: column;
     }
