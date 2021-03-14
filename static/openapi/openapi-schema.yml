@@ -182,7 +182,7 @@ paths:
       - name: date
         in: path
         required: true
-        description: "date when tour will be started"
+        description: "date when tour will be started in ISO format (YYYY-MM-DD)"
         schema:
             type: string
       responses:
@@ -208,3 +208,25 @@ paths:
           description: ''
       tags:
       - tours
+  /api/reviews/:
+    get:
+      operationId: listAllReviews
+      description: Return all moderated reviews
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+                example:
+                - pk: "2668b035-ef3d-4415-a68c-00965d75c2ef"
+                  name: Author
+                  avatar: "/media/reviews/image.jpg"
+                  text: Some text
+                  moderated: true
+                  pub_date: '2021-03-14'
+          description: ''
+      tags:
+      - reviews
