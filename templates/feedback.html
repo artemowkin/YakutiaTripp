@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <link rel="stylesheet" href="../static/css/index.css">
+        <script src="../static/js/components/uploadInput.js" defer></script>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Оставить отзыв</title>
+    </head>
+
+    <body>
+        
+        <main>
+            <article class="page flexCenter">
+                <form class="materialForm">
+                    <h1 class="materialForm__title">Оставить отзыв</h1>
+
+                    <fieldset class="materialForm__info">
+                        <label class="materialForm__input">
+                            <p>Ваше имя</p>
+                            <input type="text" placeholder="Юрий...">
+                        </label>
+
+                        <div class="materialForm__input">
+                            <p>Загрузите аватар</p>
+                            <label class="uploadInput">
+                                <p class="uploadInput__title">Нажмите чтобы выбрать файл</p>
+                                <img src="../static/img/downloadIcons.svg" alt="icons" class="uploadInput__icon">
+                                <input 
+                                    type="file" 
+                                    accept=".jpg, .png, .jpeg"
+                                    multiply
+                                    class="uploadInput__input">
+                            </label>
+                            <em>* без фото отзыв не будет допущен!</em>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="materialForm__desc">
+                        <label class="materialForm__input">
+                            <p>Ваш отзыв</p>
+                            <textarea id="" rows="10" placeholder="Хочу сказать что..."></textarea>
+                        </label>
+                    </fieldset>
+
+                    <fieldset class="materialForm__btns">
+                        <button class="filledBtn" data-text="Отправить">Отправить</button>
+                        <a href="./index.html" class="filledBtn" title="Back to home page" data-text="Вернуться">Вернуться</a>
+                    </fieldset>
+                </form>
+            </article>
+        </main>
+
+    </body>
+</html>

@@ -15,7 +15,7 @@
 }
 
 .filledBtn:before {
-    content: "Найти";
+    content: attr(data-text);
 
     position: absolute;
     top: 0;
@@ -38,8 +38,4 @@
 
 .filledBtn:hover:before {
     width: 101%;
-}
-
-.filledBtn_contentRead:before {
-    content: "Читать далее...";
 }

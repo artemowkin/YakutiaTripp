@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
     <head>
         <link rel="stylesheet" href="../static/css/index.css">
+        <script src="../static/js/libs/jquery.min.js" defer></script>
+        <script src="../static/js/components/headerMenu.js" defer></script>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,31 +13,35 @@
     <body>
         
         <header class="header">
-            <div class="wrapper flexSpace">
-                <a href="./index.html" class="header__logo" title="Go to home page">
-                    <img src="../static/img/logo.jpg" alt="Image logo">
-                </a>
-    
+            <div class="wrapper wrapper__flexSpace">
+                <section class="header__mobileSection">
+                    <a href="./index.html" class="header__logo" title="Go to home page">
+                        <img src="../static/img/logo.jpg" alt="Image logo">
+                    </a>
+        
+                    <button class="header__menuBtn"></button>
+                </section>
+
                 <nav class="header__nav">
-                    <a href="./index.html">Главная</a>
-                    <a href="#">Горящие туры</a>
-                    <a href="#">Новости</a>
-                    <a href="#">Наши услуги</a>
-                    <a href="#">Наша команда</a>
-                    <a href="#">Отзывы</a>
+                    <a href="#1">Главная</a>
+                    <a href="#2">Горящие туры</a>
+                    <a href="#3">Новости</a>
+                    <a href="#4">О нас</a>
+                    <a href="#5">Отзывы</a>
+                    <a href="#6">Наша команда</a>
                 </nav>
             </div>
         </header>
 
         <main>
-            <article class="page backgroundHeader flexCenter shadowOverlay">
+            <article class="page backgroundHeader flexCenter shadowOverlay" id="1">
                 <article class="page__indexTitle">
                     <h1 class="indexTitle__title">Yakutia Tripp</h1>
                     <p class="indexTitle__subtext">туры по якутии</p>
                 </article>
 
-                <form class="orderForm">
-                    <section class="orderForm__inputs">
+                <form class="searchForm">
+                    <section class="searchForm__inputs">
                         <input type="text" placeholder="Откуда">
                         <input type="text" placeholder="Куда">
                         <input 
@@ -43,27 +49,13 @@
                             placeholder="Дата Вылета" 
                             onfocus="(this.type='date')"
                             onblur="(this.type='text')">
-                        <select name="nightCount" id="nightCount" required>
-                            <option value="" disabled selected>Кол-во человек</option>
-                            <option value="7">7</option>
-                            <option value="14">14</option>
-                            <option value="24">24</option>
-                            <option value="30">30</option>
-                        </select>
-                        <select name="humanCount" id="humanCount" required>
-                            <option value="" disabled selected>Кол-во ночей</option>
-                            <option value="7">7</option>
-                            <option value="14">14</option>
-                            <option value="24">24</option>
-                            <option value="30">30</option>
-                        </select>
                     </section>
 
-                    <button class="filledBtn orderForm__btn">найти</button>
+                    <button class="filledBtn searchForm__btn" data-text="Найти">найти</button>
                 </form>
             </article>
 
-            <article class="page flexCenterStart no100vh">
+            <article class="page flexCenterStart no100vh" id="2">
                 <article class="page__subtitle">
                     горящие туры
                 </article>
@@ -134,7 +126,7 @@
                 </article>
             </article>
 
-            <article class="page flexCenterStart no100vh">
+            <article class="page flexCenterStart no100vh" id="3">
                 <article class="page__subtitle">
                     новости
                 </article>
@@ -163,7 +155,7 @@
                                     </p>
                                 </section>
 
-                                <a href="" class="filledBtn filledBtn_contentRead newsCard__btn" title="Go to news">Читать даллее...</a>
+                                <a href="" class="filledBtn newsCard__btn" title="Go to news" data-text="Читать даллее...">Читать даллее...</a>
                             </article>
                         </article>
                     </div>
@@ -187,7 +179,7 @@
                                     </p>
                                 </section>
 
-                                <a href="" class="filledBtn filledBtn_contentRead newsCard__btn" title="Go to news">Читать даллее...</a>
+                                <a href="" class="filledBtn newsCard__btn" title="Go to news" data-text="Читать даллее...">Читать даллее...</a>
                             </article>
                         </article>
                     </div>
@@ -211,7 +203,7 @@
                                     </p>
                                 </section>
 
-                                <a href="" class="filledBtn filledBtn_contentRead newsCard__btn" title="Go to news">Читать даллее...</a>
+                                <a href="" class="filledBtn newsCard__btn" title="Go to news" data-text="Читать даллее...">Читать даллее...</a>
                             </article>
                         </article>
                     </div>
@@ -242,7 +234,7 @@
                                     </p>
                                 </section>
 
-                                <a href="" class="filledBtn filledBtn_contentRead newsCard__btn" title="Go to news">Читать даллее...</a>
+                                <a href="" class="filledBtn newsCard__btn" title="Go to news" data-text="Читать даллее...">Читать даллее...</a>
                             </article>
                         </article>
                     </div>
@@ -272,7 +264,7 @@
                                     </p>
                                 </section>
 
-                                <a href="" class="filledBtn filledBtn_contentRead newsCard__btn" title="Go to news">Читать даллее...</a>
+                                <a href="" class="filledBtn newsCard__btn" title="Go to news" data-text="Читать даллее...">Читать даллее...</a>
                             </article>
                         </article>
                     </div>
@@ -296,7 +288,7 @@
                                     </p>
                                 </section>
 
-                                <a href="" class="filledBtn filledBtn_contentRead newsCard__btn" title="Go to news">Читать даллее...</a>
+                                <a href="" class="filledBtn newsCard__btn" title="Go to news" data-text="Читать даллее...">Читать даллее...</a>
                             </article>
                         </article>
                     </div>
@@ -320,13 +312,16 @@
                                     </p>
                                 </section>
 
-                                <a href="" class="filledBtn filledBtn_contentRead newsCard__btn" title="Go to news">Читать даллее...</a>
+                                <a href="" class="filledBtn newsCard__btn" title="Go to news" data-text="Читать даллее...">Читать даллее...</a>
                             </article>
                         </article>
                     </div>
+                </article>
+
+                <a href="./addPost.html" class="filledBtn mg100Top" title="Add news" data-text="Добавить новость">Добавить новость</a>
             </article>
 
-            <article class="page flexCenterStart no100vh">
+            <article class="page flexCenterStart no100vh" id="4">
                 <article class="page__subtitle">
                     О нас
                 </article>
@@ -354,7 +349,7 @@
                 </article>
             </article>
 
-            <article class="page flexCenterStart no100vh">
+            <article class="page flexCenterStart no100vh" id="5">
                 <article class="page__subtitle mg100Bottom">
                     Отзывы
                 </article>
@@ -411,9 +406,11 @@
                         </section>
                     </article>
                 </artilce>
+
+                <a href="./feedback.html" class="filledBtn mg100Top" title="Add review" data-text="Оставить отзыв">Оставить отзыв</a>
             </article>
 
-            <article class="page flexCenterStart no100vh">
+            <article class="page flexCenterStart no100vh" id="6">
                 <article class="page__subtitle">
                     наша команда
                 </article>
@@ -466,7 +463,7 @@
 
         <footer class="footer">
             <section class="footer__desc">
-                <a href="./home.html">Компания Yakutia Tripp</a>
+                <a href="./index.html">Компания Yakutia Tripp</a>
             </section>
 
             <section class="footer__contacts">

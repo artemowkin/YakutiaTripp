@@ -1,0 +1,75 @@
+.materialForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    width: 100%;
+    max-width: 900px;
+    padding: 30px;
+
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.200);
+}
+
+.materialForm__title {
+    color: #4E8C45;
+    text-align: center;
+}
+
+.materialForm__info {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.materialForm__input {
+    width: 100%;
+}
+
+.materialForm__input p {
+    color: #4E8C45;
+    
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.materialForm__input input, 
+.materialForm__input textarea {
+    padding: 15px;
+    border: 1px solid rgb(160, 160, 160);
+    border-radius: 5px;
+    width: 100%;
+
+    font-size: 1.1rem;
+    outline: none;
+    resize: none;
+
+    transition: all .3s ease;
+}
+
+.materialForm__input em {
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 5px;
+
+    color: red; 
+}
+
+.materialForm__desc {
+    width: 100%;
+}
+
+.materialForm__btns {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 15px;
+}
+
+@media (max-width: 768px) {
+    .materialForm__info {
+        flex-direction: column;
+    }
+}

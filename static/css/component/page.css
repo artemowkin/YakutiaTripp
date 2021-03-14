@@ -88,12 +88,8 @@
     color: #E7CBA3;
 }
 
-@media (max-width: 360px) {
+@media (max-width: 420px) {
     .page__indexTitle {
         font-size: 2rem; 
-    }
-
-    .page__indexTitle {
-        top: calc(35% + 100px);
     }
 }

@@ -1,0 +1,31 @@
+.uploadInput {
+    position: relative;
+
+    display: block;
+    border: 1px solid rgb(160, 160, 160);
+    border-radius: 5px;
+    padding: 16.3px 50px 16.3px 16.3px;
+
+    cursor: pointer;
+}
+
+.uploadInput__icon {
+    position:absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: block;
+    width: 30px;
+}
+
+.uploadInput__title {
+    margin: 0;
+
+    word-break: none;
+}
+
+.uploadInput__input {
+    border: 0;
+    display: none;
+}
