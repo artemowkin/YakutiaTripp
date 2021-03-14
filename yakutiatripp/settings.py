@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     # Local
     'news',
     'tours',
+    'reviews',
 ]
 
 MIDDLEWARE = [

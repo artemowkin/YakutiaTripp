@@ -13,7 +13,8 @@ urlpatterns = [
         extra_context={'schema-url': 'openapi-schema'}
     ), name='redoc'),
 
-    # Local
+    # API
     path('api/news/', include('news.urls')),
     path('api/tours/', include('tours.urls')),
+    path('api/reviews/', include('reviews.urls')),
 ]

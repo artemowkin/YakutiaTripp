@@ -18,12 +18,13 @@ class TourDayTest(TestCase):
             weekday="monday", description="hike", tour=self.tour
         )
 
-    def test_create_entry_fields(self):
+    def test_create_entry(self):
         """Test: does Tour model create an entry"""
         self.assertEqual(TourDay.objects.count(), 1)
         self.assertEqual(TourDay.objects.first(), self.tour_day)
 
-    def test_create_entry(self):
+    def test_create_entry_fields(self):
+        """Test: are created tour fields correct"""
         self.assertEqual(self.tour_day.weekday, 'monday')
         self.assertEqual(self.tour_day.description, 'hike')
         self.assertEqual(self.tour_day.tour, self.tour)
