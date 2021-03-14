@@ -9,7 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Frontend
 
+#### Added
 
+- `feedback.html` template with form to create a review
+- `index.html` template with main site page
 
 ### Backend
 
