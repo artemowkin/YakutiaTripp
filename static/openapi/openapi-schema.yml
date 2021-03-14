@@ -182,7 +182,7 @@ paths:
       - name: date
         in: path
         required: true
-        description: "date when tour will be started"
+        description: "date when tour will be started in ISO format (YYYY-MM-DD)"
         schema:
             type: string
       responses:

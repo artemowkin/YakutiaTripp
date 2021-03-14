@@ -35,6 +35,10 @@ And up this container
 $ sudo docker-compose up -d
 ```
 
+## API Docs
+
+You can read documentation for API on http://localhost:8000/redoc/
+
 ## Running the tests
 
 To run the tests you need to run the following command:
