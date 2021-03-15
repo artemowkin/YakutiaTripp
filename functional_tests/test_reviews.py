@@ -1,3 +1,5 @@
+import re
+import os
 import datetime
 
 import requests
@@ -51,3 +53,21 @@ class ReviewsEndpointsTest(LiveServerTestCase):
         self.assertEqual(
             json_data['pub_date'], datetime.date.today().isoformat()
         )
+
+    def test_api_review_set_avatar(self):
+        """Test: does PATCH /api/reviews/{review_pk}/ change review avatar"""
+        with open(settings.BASE_DIR / 'static/img/avatar1.jpg', 'rb') as fb:
+            files = {'avatar.jpg': fb}
+            response = requests.patch(
+                self.live_server_url + f'/api/reviews/{self.review.pk}/',
+                files=files, headers={
+                    'Content-Disposition': 'attachment; filename="avatar.jpg"'
+                }
+            )
+
+        self.assertEqual(response.status_code, 200)
+        self.assertRegex(
+            response.json()['avatar'], r'/media/reviews/avatar.*\.jpg'
+        )
+
+        os.remove(settings.BASE_DIR / response.json()['avatar'][1:])
