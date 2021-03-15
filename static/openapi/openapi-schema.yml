@@ -224,6 +224,39 @@ paths:
                 - pk: "2668b035-ef3d-4415-a68c-00965d75c2ef"
                   name: Author
                   avatar: "/media/reviews/image.jpg"
+                  rating: 5
+                  text: Some text
+                  moderated: true
+                  pub_date: '2021-03-14'
+          description: ''
+      tags:
+      - reviews
+    post:
+      operationId: createReview
+      description: Create a new review
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              items: {}
+              example:
+                name: Author
+                text: Some text
+                rating: 5
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+                example:
+                - pk: "2668b035-ef3d-4415-a68c-00965d75c2ef"
+                  name: Author
+                  avatar: "/media/reviews/image.jpg"
+                  rating: 5
                   text: Some text
                   moderated: true
                   pub_date: '2021-03-14'
