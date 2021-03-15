@@ -263,3 +263,28 @@ paths:
           description: ''
       tags:
       - reviews
+  /api/reviews/{review_pk}/:
+    patch:
+      operationId: setReviewAvatar
+      description: 'Set a review avatar using PATCH request. In request you
+      need to include the file, and in headers you need to include the header
+      `Content-Disposition: attachment; filename="filename.jpg"`'
+      parameters:
+      - name: review_pk
+        in: path
+        required: true
+        description: "UUID of review"
+        schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                items: {}
+                example:
+                    avatar: /media/reviews/filename.jpg
+          description: ''
+      tags:
+      - reviews
