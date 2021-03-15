@@ -48,3 +48,6 @@ endpoint
 - `CreateReviewService` is a service to create a new review using `name`,
 `rating`, and `text`
 - `AllReviewsView` POST method to create a new review
+- `set_review_avatar` is a service function to set avatar for review
+- `SetReviewAvatarView` supports PATCH requests on `/api/reviews/{review_pk}/`
+and sets avatars for reviews
