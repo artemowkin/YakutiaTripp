@@ -1,7 +1,10 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.parsers import FileUploadParser
 
-from .services import GetReviewsService, CreateReviewService
+from .services import (
+    GetReviewsService, CreateReviewService, set_review_avatar
+)
 from .serializers import ReviewSerializer
 
 
@@ -20,3 +23,16 @@ class AllReviewsView(APIView):
         review = self.create_service.create(**request.data)
         review_serializer = ReviewSerializer(review)
         return Response(review_serializer.data, status=201)
+
+
+class SetReviewAvatarView(APIView):
+    """View to set avatar for review"""
+
+    parser_classes = (FileUploadParser,)
+    get_service = GetReviewsService()
+
+    def patch(self, request, pk):
+        file_obj = request.data['file']
+        review = self.get_service.get_concrete(pk)
+        set_review_avatar(review, file_obj)
+        return Response({'avatar': review.avatar.url})

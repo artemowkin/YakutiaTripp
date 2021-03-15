@@ -2,6 +2,7 @@ import datetime
 
 import requests
 from django.test import LiveServerTestCase
+from django.conf import settings
 
 from reviews.models import Review
 

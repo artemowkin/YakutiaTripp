@@ -26,3 +26,9 @@ class CreateReviewService(BaseService):
             name=name, rating=rating, text=text
         )
         return created_review
+
+
+def set_review_avatar(review, file_obj):
+    """Set avatar for review"""
+    review.avatar = file_obj
+    review.save()
