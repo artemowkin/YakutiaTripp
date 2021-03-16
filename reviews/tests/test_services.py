@@ -1,4 +1,5 @@
 from django.test import TestCase
+from django.core.exceptions import ValidationError
 
 from ..services import GetReviewsService, CreateReviewService
 from ..models import Review
@@ -36,3 +37,13 @@ class CreateReviewServiceTest(TestCase):
         created_review = self.service.create(**review_data)
         self.assertEqual(Review.objects.count(), 1)
         self.assertEqual(Review.objects.first(), created_review)
+
+    def test_create_with_incorrect_rating_raises_validation_error(self):
+        """Test: create method with incorrect rating value
+        raises ValidationError
+        """
+        with self.assertRaises(ValidationError):
+            review_data = {
+                'name': 'Username', 'rating': 6, 'text': 'some text'
+            }
+            created_review = self.service.create(**review_data)

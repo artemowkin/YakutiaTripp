@@ -25,6 +25,7 @@ class CreateReviewService(BaseService):
         created_review = self.model.objects.create(
             name=name, rating=rating, text=text
         )
+        created_review.full_clean()
         return created_review
 
 

@@ -2,6 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.parsers import FileUploadParser
 
+from utils.views import validation_decorator
 from .services import (
     GetReviewsService, CreateReviewService, set_review_avatar
 )
@@ -19,6 +20,7 @@ class AllReviewsView(APIView):
         reviews_serializer = ReviewSerializer(all_reviews, many=True)
         return Response(reviews_serializer.data)
 
+    @validation_decorator
     def post(self, request):
         review = self.create_service.create(**request.data)
         review_serializer = ReviewSerializer(review)

@@ -13,6 +13,7 @@ class TourDaySerializer(serializers.ModelSerializer):
 
 class TourSerializer(serializers.ModelSerializer):
     """Serializer for Tour model"""
+
     days = TourDaySerializer(many=True)
 
     class Meta:

@@ -54,6 +54,16 @@ class ReviewsEndpointsTest(LiveServerTestCase):
             json_data['pub_date'], datetime.date.today().isoformat()
         )
 
+    def test_api_reviews_POST_with_incorrect_rating_returns_error(self):
+        """Test: does POST /api/reviews/ with incorrect rating returns
+        400 Bad Request and error message"""
+        response = requests.post(self.live_server_url + '/api/reviews/', json={
+            'name': 'Username', 'rating': 6, 'text': 'some text'
+        })
+
+        self.assertEqual(response.status_code, 400)
+        self.assertIsNotNone(response.json()['rating'])
+
     def test_api_review_set_avatar(self):
         """Test: does PATCH /api/reviews/{review_pk}/ change review avatar"""
         with open(settings.BASE_DIR / 'static/img/avatar1.jpg', 'rb') as fb:
