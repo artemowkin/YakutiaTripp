@@ -261,6 +261,16 @@ paths:
                   moderated: true
                   pub_date: '2021-03-14'
           description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+                example:
+                  rating:
+                  - "Ensure this value is less than or equal to 5."
+          description: ''
       tags:
       - reviews
   /api/reviews/{review_pk}/:
