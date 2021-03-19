@@ -6,21 +6,14 @@ paths:
   /api/news/:
     get:
       operationId: listAllNews
-      description: Return all news
+      description: Return all news list
       parameters: []
       responses:
         '200':
           content:
             application/json:
               schema:
-                type: array
-                items: {}
-                example:
-                - pk: "2668b035-ef3d-4415-a68c-00965d75c2ef"
-                  title: Some title
-                  preview: "/media/news/image.jpg"
-                  text: Some text
-                  pub_date: "2021-03-06"
+                $ref: '#/components/schemas/ListNews'
           description: ''
       tags:
       - news
@@ -40,14 +33,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                items: {}
-                example:
-                  pk: "2668b035-ef3d-4415-a68c-00965d75c2ef"
-                  title: Some title
-                  preview: "/media/news/image.jpg"
-                  text: Some text
-                  pub_date: "2021-03-06"
+                $ref: '#/components/schemas/News'
           description: ''
       tags:
       - news
@@ -61,14 +47,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items: {}
-                example:
-                - pk: "2668b035-ef3d-4415-a68c-00965d75c2ef"
-                  title: Some title
-                  preview: "/media/news/image.jpg"
-                  text: Some text
-                  pub_date: "2021-03-06"
+                $ref: '#/components/schemas/ListNews'
           description: ''
       tags:
       - news
@@ -82,21 +61,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items: {}
-                example:
-                - pk: "2668b035-ef3d-4415-a68c-00965d75c2ef"
-                  title: Some title
-                  preview: "/media/tours/image.jpg"
-                  short_description: Some short description
-                  days:
-                  - weekday: Monday
-                    description: Some description
-                  about: Some about
-                  price: "100.00"
-                  city_from: "Moscow"
-                  city_to: "Moscow"
-                  views: 0
+                $ref: '#/components/schemas/ListTour'
           description: ''
       tags:
       - tours
@@ -116,21 +81,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                items: {}
-                example:
-                  pk: "2668b035-ef3d-4415-a68c-00965d75c2ef"
-                  title: Some title
-                  preview: "/media/tours/image.jpg"
-                  short_description: Some short description
-                  days:
-                  - weekday: Monday
-                    description: Some description
-                  about: Some about
-                  price: "100.00"
-                  city_from: "Moscow"
-                  city_to: "Moscow"
-                  views: 1
+                $ref: '#/components/schemas/Tour'
           description: ''
       tags:
       - tours
@@ -144,21 +95,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items: {}
-                example:
-                - pk: "2668b035-ef3d-4415-a68c-00965d75c2ef"
-                  title: Some title
-                  preview: "/media/tours/image.jpg"
-                  short_description: Some short description
-                  days:
-                  - weekday: Monday
-                    description: Some description
-                  about: Some about
-                  price: "100.00"
-                  city_from: "Moscow"
-                  city_to: "Moscow"
-                  views: 0
+                $ref: '#/components/schemas/ListTour'
           description: ''
       tags:
       - tours
@@ -190,21 +127,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items: {}
-                example:
-                - pk: "2668b035-ef3d-4415-a68c-00965d75c2ef"
-                  title: Some title
-                  preview: "/media/tours/image.jpg"
-                  short_description: Some short description
-                  days:
-                  - weekday: Monday
-                    description: Some description
-                  about: Some about
-                  price: "100.00"
-                  city_from: "Moscow"
-                  city_to: "Moscow"
-                  views: 0
+                $ref: '#/components/schemas/ListTour'
           description: ''
       tags:
       - tours
@@ -218,16 +141,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items: {}
-                example:
-                - pk: "2668b035-ef3d-4415-a68c-00965d75c2ef"
-                  name: Author
-                  avatar: "/media/reviews/image.jpg"
-                  rating: 5
-                  text: Some text
-                  moderated: true
-                  pub_date: '2021-03-14'
+                $ref: '#/components/schemas/ListReview'
           description: ''
       tags:
       - reviews
@@ -239,38 +153,26 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              items: {}
-              example:
-                name: Author
-                text: Some text
-                rating: 5
+                $ref: '#/components/schemas/Review'
       responses:
         '201':
           content:
             application/json:
               schema:
-                type: array
-                items: {}
-                example:
-                  pk: "2668b035-ef3d-4415-a68c-00965d75c2ef"
-                  name: Author
-                  avatar: "/media/reviews/image.jpg"
-                  rating: 5
-                  text: Some text
-                  moderated: true
-                  pub_date: '2021-03-14'
+                $ref: '#/components/schemas/Review'
           description: ''
         '400':
           content:
             application/json:
               schema:
-                type: array
-                items: {}
-                example:
-                  rating:
-                  - "Ensure this value is less than or equal to 5."
-          description: ''
+                type: object
+                properties:
+                    rating:
+                        type: array
+                        items:
+                            type: string
+                            example:
+                                "Ensure this value is less than or equal to 5."
       tags:
       - reviews
   /api/reviews/{review_pk}/:
@@ -292,9 +194,159 @@ paths:
             application/json:
               schema:
                 type: object
-                items: {}
-                example:
-                    avatar: /media/reviews/filename.jpg
-          description: ''
+                properties:
+                    avatar:
+                        type: string
+                        example: "/media/reviews/filename.jpg"
       tags:
       - reviews
+components:
+    schemas:
+        News:
+            type: object
+            properties:
+                pk:
+                    type: string
+                    example: "2668b035-ef3d-4415-a68c-00965d75c2ef"
+                    minLength: 36
+                    maxLength: 36
+                    description: "UUID primary key of news entry"
+                title:
+                    type: string
+                    maxLength: 255
+                    minLength: 1
+                    example: Some title
+                    description: "Title of news"
+                preview:
+                    type: string
+                    example: "/media/news/image.jpg"
+                    description: "Path to image on news preview"
+                text:
+                    type: string
+                    example: "some text"
+                    description: "Text of news"
+                pub_date:
+                    type: string
+                    format: date
+                    description: "News publication date in ISO format"
+        ListNews:
+            type: array
+            items:
+                $ref: '#/components/schemas/News'
+        Tour:
+            type: object
+            properties:
+                pk:
+                    type: string
+                    example: "2668b035-ef3d-4415-a68c-00965d75c2ef"
+                    maxLength: 36
+                    minLength: 36
+                    description: "UUID primary key of tour"
+                title:
+                    type: string
+                    example: Some title
+                    maxLength: 255
+                    minLength: 1
+                    description: "Title of tour"
+                preview:
+                    type: string
+                    example: "/media/tours/image.jpg"
+                    description: "Path to image on tour preview"
+                short_description:
+                    type: string
+                    maxLength: 4000
+                    minLength: 1
+                    example: "Some short description"
+                    description: "Tour short description: what is this tour?"
+                days:
+                    type: array
+                    description: "Tour days"
+                    items:
+                        type: object
+                        properties:
+                            weekday:
+                                type: string
+                                maxLength: 9
+                                minLength: 1
+                                example: Monday
+                                description: "Tour day weekday choice from 7 variants:
+                                Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday"
+                            description:
+                                type: string
+                                example: Some description
+                                description: "Tour day description: what will happen in this day"
+                about:
+                    type: string
+                    minLength: 1
+                    example: "Some about"
+                    description: "Full description about this tour"
+                price:
+                    type: string
+                    format: decimal
+                    description: "Decimal price in format: 100.00, max value: 99999999.99"
+                city_from:
+                    type: string
+                    maxLength: 255
+                    minLength: 1
+                    example: "Moscow"
+                    description: "City where tour will be started"
+                city_to:
+                    type: string
+                    maxLength: 255
+                    minLength: 1
+                    example: Moscow
+                    description: "City where tour will be finished"
+                views:
+                    type: integer
+                    format: int32
+                    description: "Number of views of the tour"
+        ListTour:
+            type: array
+            items:
+                $ref: '#/components/schemas/Tour'
+        Review:
+            type: object
+            properties:
+                pk:
+                    type: string
+                    minLength: 36
+                    maxLength: 36
+                    readOnly: true
+                    example: "2668b035-ef3d-4415-a68c-00965d75c2ef"
+                    description: "UUID primary key of review"
+                name:
+                    type: string
+                    maxLength: 255
+                    minLength: 1
+                    example: "Author"
+                    description: "Name of person who creates a review"
+                avatar:
+                    type: string
+                    example: "/media/reviews/image.jpg"
+                    readOnly: true
+                    description: "Path to review author avatar"
+                rating:
+                    type: int
+                    format: int32
+                    example: 5
+                    description: "Review rating in range from 1 to 5"
+                text:
+                    type: string
+                    maxLength: 4000
+                    minLength: 1
+                    example: Some text
+                    description: "Text of review"
+                moderated:
+                    type: boolean
+                    example: true
+                    readOnly: true
+                    description: "Boolean field is review moderated"
+                pub_date:
+                    type: string
+                    format: date
+                    readOnly: true
+                    description: "Review publication date"
+        ListReview:
+            type: array
+            items:
+                $ref: '#/components/schemas/Review'
