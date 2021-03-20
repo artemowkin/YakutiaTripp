@@ -1,12 +1,19 @@
 language: python
 python:
     - "3.9"
+services:
+    - postgresql
 env:
+    global:
     - DJANGO_SECRET_KEY="#bi^q(lytip$+3bj-z-23@6tds)5$fsgi0t^8m_(yg%8rjobc*"
+    - PGUSER=django
+    - PGPASSWORD=django
 install:
     - pip install pipenv
     - pipenv install --dev
     - ./manage.py migrate
+before_script:
+    - psql -c 'create database yakutiatripp;'
 script:
     - coverage run --source=news,services,tours,reviews --omit="*tests*","*migrations*","*__init__*","*apps.py","*admin.py" manage.py test
 after_success:
