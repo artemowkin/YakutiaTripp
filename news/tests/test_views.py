@@ -1,10 +1,6 @@
-import simplejson as json
-
 from django.test import TestCase
 from django.urls import reverse
-from rest_framework.renderers import JSONRenderer
 
-from ..serializers import NewsSerializer
 from ..models import News
 
 

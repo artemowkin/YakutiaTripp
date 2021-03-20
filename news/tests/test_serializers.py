@@ -1,8 +1,6 @@
 import datetime
 
 from django.test import TestCase
-from django.conf import settings
-from django.core.files import File
 
 from ..serializers import NewsSerializer
 from ..models import News
