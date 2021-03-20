@@ -11,9 +11,10 @@ env:
 install:
     - pip install pipenv
     - pipenv install --dev
-    - ./manage.py migrate
 before_script:
     - psql -c 'create database yakutiatripp;'
+    - psql -c 'create role django with password django'
+    - ./manage.py migrate
 script:
     - coverage run --source=news,services,tours,reviews --omit="*tests*","*migrations*","*__init__*","*apps.py","*admin.py" manage.py test
 after_success:
