@@ -1,5 +1,8 @@
 # Yakutia Tripp
 
+[![Coverage Status](https://coveralls.io/repos/github/artemowkin/YakutiaTripp/badge.svg?branch=dev)](https://coveralls.io/github/artemowkin/YakutiaTripp?branch=dev)
+[![Build Status](https://travis-ci.com/artemowkin/YakutiaTripp.svg?branch=main)](https://travis-ci.com/artemowkin/YakutiaTripp)
+
 This project is a site for travel company
 
 ## Getting Started
