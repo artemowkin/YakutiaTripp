@@ -29,13 +29,13 @@ DJANGO_SECRET_KEY="<django_secret_key>"
 Run building of docker container:
 
 ```
-$ sudo docker-compose build
+$ docker-compose build
 ```
 
 And up this container
 
 ```
-$ sudo docker-compose up -d
+$ docker-compose up -d
 ```
 
 ## API Docs
