@@ -1,6 +1,8 @@
 language: python
 python:
     - "3.9"
+env:
+    - DJANGO_SECRET_KEY="#bi^q(lytip$+3bj-z-23@6tds)5$fsgi0t^8m_(yg%8rjobc*"
 install:
     - pip install pipenv
     - pipenv install --dev
